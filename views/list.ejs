@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your task</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body>
+    <header class="row"><h1> What do you need to do today?</h1></header>
+
+    <main>
+
+        
+            <div class="box">   
+                
+                <% for(var i=0; i< ejes.length; i++){ %>
+                    <div class="item" >
+                        <input type="checkbox" aria-label="Mark task as done">
+                            <p><%=ejes[i].name %>
+                                 <span class="priority <%= ejes[i].priority ? ejes[i].priority.toLowerCase() : '' %>">
+                                 [<%= ejes[i].priority ? ejes[i].priority : 'No Priority' %>]
+                                     </span>
+                           
+                                 <form action="/delete" method="POST" style="display:inline">
+                                <input type="hidden" name="task" value="<%=ejes[i].name%>">
+                                <button type="submit" aria-label="Delete task" title="Delete"><ion-icon class="delete" name="trash-outline" aria-label="Delete"></ion-icon></button>
+                            </form>
+
+
+                             <form action="/edit" method="POST" style="display:inline">
+                                <input type="hidden" name="task" value="<%=ejes[i].name%>">
+                <input  class="hide"  type="text" name="newTaskName"  style="width:120px; @media screen and (max-width:400px){width:100px;
+                    
+                } font: 1em sans-serif; display:none"  placeholder="Edit task name" aria-label="Edit task name" required >
+                <button type="button" aria-label="Edit task" title="Edit" onclick="this.previousElementSibling.style.display='inline-block'; this.previousElementSibling.focus(); this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <ion-icon  class="delete" name="pencil-outline" aria-label="Edit"></ion-icon>
+                </button>
+                <button  type="submit" aria-label="Save edit" title="Save" style="display:none;">
+                    <ion-icon id="tick"  class="tick" name="checkmark-outline" aria-label="Save"></ion-icon>
+                </button></form> </div><%}%>
+
+
+                <form action="/" method="POST">
+
+                    <input type="text"  id="task" name="task" placeholder="Enter your task" required aria-label="Task">
+             <select name="priority" required aria-label="Priority">
+                             <option value="Low">Low</option>
+                             <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+                             <option value="Urgent">Urgent</option>
+                    </select>
+                    <button  id="btn" type="submit" aria-label="Add task" title="Add">+</button>
+                </form>
+                
+ 
+            </div>
+
+        
+    </main>
+    <footer>
+        <p>Made with <i class="fa-solid fa-heart"></i> </p> </footer>
+    
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<script>
+// Example: Show alert after saving edit (when save button is clicked)
+document.querySelectorAll('form[action="/edit"] button[type="submit"]').forEach(function(saveBtn) {
+    saveBtn.addEventListener('click', function() {
+        alert("Item updated successfully!");
+    });});
+
+    document.querySelectorAll('form[action="/delete"] button[type="submit"]').forEach(function(DeleteBtn) {
+    DeleteBtn.addEventListener('click', function() {
+        alert("Item  deleted");
+    });
+});
+
+</script>
+
+</body>
+</html>
