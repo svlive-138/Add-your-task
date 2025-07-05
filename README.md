@@ -34,7 +34,8 @@ A modern, responsive to-do list web application built with **Node.js**, **Expres
 
 ## 📁 Project Structure  
 
-`
+
+```
 A to dolist assigment/
 ├── public/
 │ └── css/
@@ -42,8 +43,8 @@ A to dolist assigment/
 ├── views/
 │ └── list.ejs
 ├── server.js
-├── package.json`
-
+├── package.json
+```
 ## 🛠 Customization  
 🎨 Edit `public/css/style.css` for styles | 🧩 Modify `views/list.ejs` for UI | 🧠 Update `server.js` for backend logic
 
@@ -55,3 +56,5 @@ This project is for **educational purposes**. Feel free to use and modify it for
 
 ## 👨‍💻 Author  
 **Shrey Vyas**
+
+
