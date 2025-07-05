@@ -27,7 +27,7 @@ A modern, responsive to-do list web application built with **Node.js**, **Expres
 ### 🧰 Installation
 
 **Installation Steps:**  
-1️⃣ Clone the repository: `git clone <your-repo-url>` then `cd "A to dolist assigment"`  
+1️⃣ Clone the repository: `git clone https://github.com/svlive-138/Add-your-task.git` then `cd "A to dolist assigment"`  
 2️⃣ Install dependencies: `npm install`  
 3️⃣ Start the server: `node server.js`  
 4️⃣ Open your browser at: `http://localhost:3000`
