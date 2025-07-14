@@ -26,13 +26,13 @@
                                  [<%= ejes[i].priority ? ejes[i].priority : 'No Priority' %>]
                                      </span>
                            
-                                 <form action="/delete" method="POST" style="display:inline">
+                                 <form action="/tasks/<%= ejes[i]._id   %>?_method=DELETE" method="POST" style="display:inline">
                                 <input type="hidden" name="task" value="<%=ejes[i].name%>">
-                                <button type="submit" aria-label="Delete task" title="Delete"><ion-icon class="delete" name="trash-outline" aria-label="Delete"></ion-icon></button>
-                            </form>
+                                <button type="submit" aria-label="Delete task" title="Delete"><ion-icon class="delete" id="delete" name="trash-outline" aria-label="Delete"></ion-icon></button>
+                            
+                                         </form>
 
-
-                             <form action="/edit" method="POST" style="display:inline">
+                             <form action="/tasks/<%= ejes[i]._id  %>?_method=PUT" method="POST" style="display:inline">
                                 <input type="hidden" name="task" value="<%=ejes[i].name%>">
                 <input  class="hide"  type="text" name="newTaskName"  style="width:120px; @media screen and (max-width:400px){width:100px;
                     
@@ -42,7 +42,7 @@
                 </button>
                 <button  type="submit" aria-label="Save edit" title="Save" style="display:none;">
                     <ion-icon id="tick"  class="tick" name="checkmark-outline" aria-label="Save"></ion-icon>
-                </button></form> </div><%}%>
+                </button> </form></div><%}%>
 
 
                 <form action="/" method="POST">
@@ -70,19 +70,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
 <script>
-// Example: Show alert after saving edit (when save button is clicked)
-document.querySelectorAll('form[action="/edit"] button[type="submit"]').forEach(function(saveBtn) {
-    saveBtn.addEventListener('click', function() {
+//  Show alert after saving edit (when save button is clicked)
+document.querySelectorAll('.tick').forEach(function(tick) {
+    tick.addEventListener('click', function() {
         alert("Item updated successfully!");
     });});
 
-    document.querySelectorAll('form[action="/delete"] button[type="submit"]').forEach(function(DeleteBtn) {
-    DeleteBtn.addEventListener('click', function() {
+    document.querySelectorAll('#delete').forEach(function(del) {
+    del.addEventListener('click', function() {
         alert("Item  deleted");
     });
 });
-
 </script>
-
 </body>
 </html>
