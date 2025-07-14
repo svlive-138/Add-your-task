@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,20 +21,41 @@
                 
                 <% for(var i=0; i< ejes.length; i++){ %>
                     <div class="item" >
-                        <input type="checkbox">
-                            <p><%=ejes[i] %></p>
-                            <form action="/delete" method="POST" style="display:inline">
-                                <input type="hidden" name="task" value="<%=ejes[i]%>">
-                                <button type="submit"><ion-icon class="delete" name="trash-outline"></ion-icon></button>
-                            </form>
-                    </div>
-                    <%} %>
+                        <input type="checkbox" aria-label="Mark task as done">
+                            <p><%=ejes[i].name %>
+                                 <span class="priority <%= ejes[i].priority ? ejes[i].priority.toLowerCase() : '' %>">
+                                 [<%= ejes[i].priority ? ejes[i].priority : 'No Priority' %>]
+                                     </span>
+                           
+                                 <form action="/tasks/<%= ejes[i]._id   %>?_method=DELETE" method="POST" style="display:inline">
+                                <input type="hidden" name="task" value="<%=ejes[i].name%>">
+                                <button type="submit" aria-label="Delete task" title="Delete"><ion-icon class="delete" id="delete" name="trash-outline" aria-label="Delete"></ion-icon></button>
+                            
+                                         </form>
+
+                             <form action="/tasks/<%= ejes[i]._id  %>?_method=PUT" method="POST" style="display:inline">
+                                <input type="hidden" name="task" value="<%=ejes[i].name%>">
+                <input  class="hide"  type="text" name="newTaskName"  style="width:120px; @media screen and (max-width:400px){width:100px;
+                    
+                } font: 1em sans-serif; display:none"  placeholder="Edit task name" aria-label="Edit task name" required >
+                <button type="button" aria-label="Edit task" title="Edit" onclick="this.previousElementSibling.style.display='inline-block'; this.previousElementSibling.focus(); this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <ion-icon  class="delete" name="pencil-outline" aria-label="Edit"></ion-icon>
+                </button>
+                <button  type="submit" aria-label="Save edit" title="Save" style="display:none;">
+                    <ion-icon id="tick"  class="tick" name="checkmark-outline" aria-label="Save"></ion-icon>
+                </button> </form></div><%}%>
 
 
                 <form action="/" method="POST">
 
-                    <input type="text"  id="task" name="task" placeholder="Enter your task" required>
-                    <button  id="btn" type="submit" >+</button>
+                    <input type="text"  id="task" name="task" placeholder="Enter your task" required aria-label="Task">
+             <select name="priority" required aria-label="Priority">
+                             <option value="Low">Low</option>
+                             <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+                             <option value="Urgent">Urgent</option>
+                    </select>
+                    <button  id="btn" type="submit" aria-label="Add task" title="Add">+</button>
                 </form>
                 
  
@@ -45,8 +67,21 @@
         <p>Made with <i class="fa-solid fa-heart"></i> </p> </footer>
     
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
+<script>
+//  Show alert after saving edit (when save button is clicked)
+document.querySelectorAll('.tick').forEach(function(tick) {
+    tick.addEventListener('click', function() {
+        alert("Item updated successfully!");
+    });});
 
+    document.querySelectorAll('#delete').forEach(function(del) {
+    del.addEventListener('click', function() {
+        alert("Item  deleted");
+    });
+});
+</script>
 </body>
 </html>
