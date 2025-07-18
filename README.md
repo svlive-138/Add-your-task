@@ -1,28 +1,49 @@
-A to Do List Assignment
-A modern, responsive to-do list web application built with Node.js, Express, and EJS. This project allows users to add and delete tasks in a visually appealing, user-friendly interface.
 
-Features
-Add new tasks to your to-do list
-edit and set priority to task 
-Delete tasks with a single click
-Responsive and modern UI
-Built using Express.js and EJS templating
-Styled with custom CSS and Google Fonts
-Getting Started
-Prerequisites
-Node.js (v14 or higher recommended)
-npm
-Installation
-Clone the repository:
+# 📝 To-Do List Assignment
+
+A modern, responsive To-Do List web application built using **Node.js**, **Express**, and **EJS** templating. This project allows users to add, edit, prioritize, and delete tasks through a clean and user-friendly interface.
+
+## 🚀 Features
+
+- ➕ Add new tasks to your to-do list
+- ✏️ Edit task details and set priority
+- ❌ Delete tasks with a single click
+- 📱 Fully responsive, modern UI
+- 🌐 Styled with custom CSS and Google Fonts
+- ⚙️ Backend powered by Express.js and EJS
+
+## 🧰 Tech Stack
+
+- **Node.js** (v14+)
+- **Express.js**
+- **EJS templating**
+- **CSS3**
+- **Google Fonts**
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
 git clone https://github.com/svlive-138/Add-your-task.git
-cd "A to dolist assigment "
-Install dependencies:
+cd "Add-your-task"
+```
+
+
+# Install dependencies
 npm install
-Start the server:
+
+# Start the server
 node server.js
-Open your browser and go to 'http//localhost:3000'
-Project Structure
-A to dolist assigment 6 mernstack/
+📁 Project Structure
+```
+Add-your-task/
 ├── public/
 │   └── css/
 │       └── style.css
@@ -31,14 +52,18 @@ A to dolist assigment 6 mernstack/
 ├── server.js
 ├── package.json
 └── README.md
-Customization
-To change the look and feel, edit public/css/style.css.
-To modify the UI, update views/list.ejs.
-For backend logic, see server.js.
-Deployment link
-" https://add-your-task.onrender.com/ "
+```
+🎨 Customization
+To change the styling, modify public/css/style.css
 
-License
-This project is for educational purposes. Feel free to use and modify it for your own learning.
+To update the UI, edit views/list.ejs
 
-Author: Shrey vyas
+For backend functionality, explore server.js
+
+🌐 Live Demo
+Deploy your tasks effortlessly online at: 🔗 add-your-task.onrender.com
+
+📄 License
+This project is for educational purposes only. Feel free to fork, modify, and experiment with it for personal learning.
+
+Author: Shrey Vyas
