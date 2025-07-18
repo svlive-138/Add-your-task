@@ -1,0 +1,44 @@
+A to Do List Assignment
+A modern, responsive to-do list web application built with Node.js, Express, and EJS. This project allows users to add and delete tasks in a visually appealing, user-friendly interface.
+
+Features
+Add new tasks to your to-do list
+edit and set priority to task 
+Delete tasks with a single click
+Responsive and modern UI
+Built using Express.js and EJS templating
+Styled with custom CSS and Google Fonts
+Getting Started
+Prerequisites
+Node.js (v14 or higher recommended)
+npm
+Installation
+Clone the repository:
+git clone https://github.com/svlive-138/Add-your-task.git
+cd "A to dolist assigment "
+Install dependencies:
+npm install
+Start the server:
+node server.js
+Open your browser and go to 'http//localhost:3000'
+Project Structure
+A to dolist assigment 6 mernstack/
+├── public/
+│   └── css/
+│       └── style.css
+├── views/
+│   └── list.ejs
+├── server.js
+├── package.json
+└── README.md
+Customization
+To change the look and feel, edit public/css/style.css.
+To modify the UI, update views/list.ejs.
+For backend logic, see server.js.
+Deployment link
+" https://add-your-task.onrender.com/ "
+
+License
+This project is for educational purposes. Feel free to use and modify it for your own learning.
+
+Author: Shrey vyas
